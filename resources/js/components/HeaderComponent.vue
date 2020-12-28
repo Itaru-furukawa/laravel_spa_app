@@ -5,7 +5,7 @@
                 <span class="navbar-brand mb-0 h1">葬儀作成アプリケーション</span>
                 <div>
                     <router-link v-bind:to="{name: 'top'}">
-                        <button class="btn btn-secondary ">トップに戻る</button>
+                        <button class="btn btn-link">トップに戻る</button>
                     </router-link>
                     <router-link v-bind:to="{name: 'create'}">
                         <button class="btn btn-primary ">葬儀の作成</button>
@@ -21,6 +21,10 @@
                 
                     <router-link v-bind:to="{name: 'manage'}">
                         <button class="btn btn-success ">入力管理</button>
+                    </router-link>
+
+                    <router-link v-bind:to="{name: 'shijuukunichi'}">
+                        <button class="btn btn-secondary ">入力管理</button>
                     </router-link>
                 </div>
             </nav>

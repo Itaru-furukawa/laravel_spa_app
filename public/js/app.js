@@ -3894,6 +3894,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -71412,7 +71416,7 @@ var render = function() {
           "div",
           [
             _c("router-link", { attrs: { to: { name: "top" } } }, [
-              _c("button", { staticClass: "btn btn-secondary " }, [
+              _c("button", { staticClass: "btn btn-link" }, [
                 _vm._v("トップに戻る")
               ])
             ]),
@@ -71437,6 +71441,12 @@ var render = function() {
             _vm._v(" "),
             _c("router-link", { attrs: { to: { name: "manage" } } }, [
               _c("button", { staticClass: "btn btn-success " }, [
+                _vm._v("入力管理")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("router-link", { attrs: { to: { name: "shijuukunichi" } } }, [
+              _c("button", { staticClass: "btn btn-secondary " }, [
                 _vm._v("入力管理")
               ])
             ])
