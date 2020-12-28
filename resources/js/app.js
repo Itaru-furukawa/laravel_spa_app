@@ -35,7 +35,7 @@ const router = new VueRouter({
             component: TaskListComponent
         },
         {
-            path: '/top',
+            path: '/',
             name: 'top',
             component: TopComponent
         },

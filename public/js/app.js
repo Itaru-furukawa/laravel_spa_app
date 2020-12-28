@@ -95912,7 +95912,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_HeaderComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/HeaderComponent */ "./resources/js/components/HeaderComponent.vue");
 /* harmony import */ var _components_TopComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/TopComponent */ "./resources/js/components/TopComponent.vue");
-/* harmony import */ var _components_ListComponent__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/ListComponent */ "./resources/js/components/ListComponent.vue");
+/* harmony import */ var _components_ListComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ListComponent */ "./resources/js/components/ListComponent.vue");
 /* harmony import */ var _components_CustomerListComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/CustomerListComponent */ "./resources/js/components/CustomerListComponent.vue");
 /* harmony import */ var _components_SougiShowComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/SougiShowComponent */ "./resources/js/components/SougiShowComponent.vue");
 /* harmony import */ var _components_EstimateShowComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/EstimateShowComponent */ "./resources/js/components/EstimateShowComponent.vue");
@@ -95960,13 +95960,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     name: 'task.list',
     component: _components_TaskListComponent__WEBPACK_IMPORTED_MODULE_13__["default"]
   }, {
-    path: '/top',
+    path: '/',
     name: 'top',
     component: _components_TopComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
     path: '/list',
     name: 'list',
-    component: _components_ListComponent__WEBPACK_IMPORTED_MODULE_17__["default"]
+    component: _components_ListComponent__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
     path: '/customer',
     name: 'customer',
