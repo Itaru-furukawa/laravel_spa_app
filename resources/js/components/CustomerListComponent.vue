@@ -3,7 +3,7 @@
         <table class="table table-hover">
             <thead class="thead-light">
             <tr>
-                <th scope="col">依頼年月日</th>
+                <th scope="col">依頼年月日/<br>担当社名</th>
                 <th scope="col">喪主名</th>
                 <th scope="col">電話番号1</th>
                 <th scope="col">電話番号2</th>
@@ -13,7 +13,7 @@
             </thead>
             <tbody>
             <tr v-for="s in sougi">
-                <th scope="row" v-if="s.reqYear+s.reqMonth+s.reqDay > 0">{{s.reqYear+"年"+s.reqMonth+"月"+s.reqDay + "日"}}</th>
+                <th scope="row" v-if="s.reqYear+s.reqMonth+s.reqDay > 0">{{s.reqYear+"年"+s.reqMonth+"月"+s.reqDay + "日"}}/<br>{{getCompName(s.compId)}}</th>
                 <td v-else>未入力</td>
                 <td v-if="s.moshuName !== null">{{s.moshuName}}</td>
                 <td v-else>未入力</td>
@@ -35,7 +35,8 @@
     export default {
         data(){
             return{
-                sougi : []
+                sougi : [],
+                compsName :[],
             } 
         },
         methods:{
@@ -43,7 +44,16 @@
                 axios.get('/api/list')
                     .then((res)=>{
                         this.sougi = res.data;
+                    }); 
+                axios.get('/api/manage/show1')
+                    .then((res) =>{
+                        for(let i in res.data){
+                            this.compsName[res.data[i].id] = res.data[i].name;
+                        }
                     });
+            },
+            getCompName(id){
+                return this.compsName[id];
             }
         },
         mounted(){

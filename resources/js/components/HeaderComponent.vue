@@ -24,7 +24,7 @@
                     </router-link>
 
                     <router-link v-bind:to="{name: 'shijuukunichi'}">
-                        <button class="btn btn-secondary ">入力管理</button>
+                        <button class="btn btn-secondary ">四十九日</button>
                     </router-link>
                 </div>
             </nav>

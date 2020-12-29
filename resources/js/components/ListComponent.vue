@@ -35,7 +35,7 @@
                 </td>
                 <td>
                     <router-link v-bind:to="{name: 'sougi.edit',params :{sougiId : s.id}}">
-                    <button class="btn btn-success">打合わせ事項<br>の編集</button>
+                    <button class="btn btn-success">葬儀<br>の編集</button>
                     </router-link>
                 </td>
                 <td>

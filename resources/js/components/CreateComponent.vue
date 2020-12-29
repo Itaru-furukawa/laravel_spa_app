@@ -283,7 +283,7 @@
                                 <label for="two">いない</label>
                             </div>
                             <div class="form-group col-md-4" v-if="sougi.spouse === 'いる'">
-                                <label for="spouseAge">満年齢</label>
+                                <label for="spouseAge">配偶者の満年齢</label>
                                 <input type="number" class="form-control" id="spouseAge" v-model="sougi.spouseAge">
                             </div>
                             <div class="form-group col-md-4" v-else>

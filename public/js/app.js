@@ -2648,7 +2648,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      sougi: []
+      sougi: [],
+      compsName: []
     };
   },
   methods: {
@@ -2658,6 +2659,14 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/api/list').then(function (res) {
         _this.sougi = res.data;
       });
+      axios.get('/api/manage/show1').then(function (res) {
+        for (var i in res.data) {
+          _this.compsName[res.data[i].id] = res.data[i].name;
+        }
+      });
+    },
+    getCompName: function getCompName(id) {
+      return this.compsName[id];
     }
   },
   mounted: function mounted() {
@@ -65986,7 +65995,7 @@ var render = function() {
                     _vm.sougi.spouse === "いる"
                       ? _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("label", { attrs: { for: "spouseAge" } }, [
-                            _vm._v("満年齢")
+                            _vm._v("配偶者の満年齢")
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -67901,8 +67910,10 @@ var render = function() {
                   _vm._v(
                     _vm._s(
                       s.reqYear + "年" + s.reqMonth + "月" + s.reqDay + "日"
-                    )
-                  )
+                    ) + "/"
+                  ),
+                  _c("br"),
+                  _vm._v(_vm._s(_vm.getCompName(s.compId)))
                 ])
               : _c("td", [_vm._v("未入力")]),
             _vm._v(" "),
@@ -67939,7 +67950,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-light" }, [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("依頼年月日")]),
+        _c("th", { attrs: { scope: "col" } }, [
+          _vm._v("依頼年月日/"),
+          _c("br"),
+          _vm._v("担当社名")
+        ]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("喪主名")]),
         _vm._v(" "),
@@ -71447,7 +71462,7 @@ var render = function() {
             _vm._v(" "),
             _c("router-link", { attrs: { to: { name: "shijuukunichi" } } }, [
               _c("button", { staticClass: "btn btn-secondary " }, [
-                _vm._v("入力管理")
+                _vm._v("四十九日")
               ])
             ])
           ],
@@ -71573,7 +71588,7 @@ var render = function() {
                   },
                   [
                     _c("button", { staticClass: "btn btn-success" }, [
-                      _vm._v("打合わせ事項"),
+                      _vm._v("葬儀"),
                       _c("br"),
                       _vm._v("の編集")
                     ])
@@ -95952,6 +95967,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ //import ShomeiComponent from "./components/ShomeiComponent";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
