@@ -26,9 +26,9 @@
                 </tr>
             </table>
             <table class="table2">
-                <tr><td>通夜式　{{sougi.tuyaYear}}年{{sougi.tuyaMonth}}月{{sougi.tuyaDay}}日{{sougi.tuyaHours}}時{{sougi.tuyaHours}}分〜{{sougi.tuyaHourf}}時{{sougi.tuyaMins}}分<br>集合時間　{{sougi.tuyaHourf}}時{{sougi.tuyaMinf}}分</td></tr>
-                <tr><td>告別式　{{sougi.kokubetsuYear}}年{{sougi.kokubetsuMonth}}月{{sougi.kokubetsuDay}}日{{sougi.kokubetsuHours}}時{{sougi.kokubetsuHours}}分〜{{sougi.kokubetsuHourf}}時{{sougi.kokubetsuMins}}分<br>集合時間　{{sougi.kokubetsuHourf}}時{{sougi.kokubetsuMinf}}分</td></tr>
-                <tr><td>火葬式　{{sougi.kasouYear}}年{{sougi.kasouMonth}}月{{sougi.kasouDay}}日{{sougi.kasouHours}}時{{sougi.kasouHours}}分〜{{sougi.kasouHourf}}時{{sougi.kasouMins}}分<br>集合時間　{{sougi.kasouHourf}}時{{sougi.kasouMinf}}分</td></tr>
+                <tr><td>通夜式　{{sougi.tuyaYear}}年{{sougi.tuyaMonth}}月{{sougi.tuyaDay}}日{{sougi.tuyaHours}}時{{sougi.tuyaHours}}分〜{{sougi.tuyaHourf}}時{{sougi.tuyaMins}}分<br>集合時間　{{sougi.tuyaHourg}}時{{sougi.tuyaMing}}分</td></tr>
+                <tr><td>告別式　{{sougi.kokubetsuYear}}年{{sougi.kokubetsuMonth}}月{{sougi.kokubetsuDay}}日{{sougi.kokubetsuHours}}時{{sougi.kokubetsuHours}}分〜{{sougi.kokubetsuHourf}}時{{sougi.kokubetsuMins}}分<br>集合時間　{{sougi.kokubetsuHourg}}時{{sougi.kokubetsuMing}}分</td></tr>
+                <tr><td>火葬式　{{sougi.kasouYear}}年{{sougi.kasouMonth}}月{{sougi.kasouDay}}日{{sougi.kasouHours}}時{{sougi.kasouHours}}分〜{{sougi.kasouHourf}}時{{sougi.kasouMins}}分<br>集合時間　{{sougi.kasouHourg}}時{{sougi.kasouMing}}分</td></tr>
             </table>
         </div>
         <div class="second_div">
