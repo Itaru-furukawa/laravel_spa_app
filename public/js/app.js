@@ -76729,9 +76729,9 @@ var render = function() {
             _c("br"),
             _vm._v(
               "集合時間　" +
-                _vm._s(_vm.sougi.tuyaHourf) +
+                _vm._s(_vm.sougi.tuyaHourg) +
                 "時" +
-                _vm._s(_vm.sougi.tuyaMinf) +
+                _vm._s(_vm.sougi.tuyaMing) +
                 "分"
             )
           ])
@@ -76759,9 +76759,9 @@ var render = function() {
             _c("br"),
             _vm._v(
               "集合時間　" +
-                _vm._s(_vm.sougi.kokubetsuHourf) +
+                _vm._s(_vm.sougi.kokubetsuHourg) +
                 "時" +
-                _vm._s(_vm.sougi.kokubetsuMinf) +
+                _vm._s(_vm.sougi.kokubetsuMing) +
                 "分"
             )
           ])
@@ -76789,9 +76789,9 @@ var render = function() {
             _c("br"),
             _vm._v(
               "集合時間　" +
-                _vm._s(_vm.sougi.kasouHourf) +
+                _vm._s(_vm.sougi.kasouHourg) +
                 "時" +
-                _vm._s(_vm.sougi.kasouMinf) +
+                _vm._s(_vm.sougi.kasouMing) +
                 "分"
             )
           ])
