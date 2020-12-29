@@ -72630,7 +72630,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("死亡日")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("四十九日予定日残り")])
+        _c("th", { attrs: { scope: "col" } }, [
+          _vm._v("四十九日予定日（残り）")
+        ])
       ])
     ])
   }

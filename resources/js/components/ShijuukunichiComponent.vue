@@ -7,7 +7,7 @@
                 <th scope="col">喪家名/<br>故人名</th>
                 <th scope="col">担当社名/<br>担当者名</th>
                 <th scope="col">死亡日</th>
-                <th scope="col">四十九日予定日残り</th>
+                <th scope="col">四十九日予定日（残り）</th>
             </tr>
             </thead>
             <tbody>
