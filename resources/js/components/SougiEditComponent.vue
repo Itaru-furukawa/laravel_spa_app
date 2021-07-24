@@ -568,7 +568,6 @@ export default {
             sougi : {
                 "sex" :'male',
                 "spouse" :'いる',
-                "dead_month": '12',
                 "spouseStatus": '未婚',
                 "date" : moment(),
                 "today" : moment().format(),
@@ -627,22 +626,7 @@ export default {
                     let year = moment().format('YYYY');
                     let month = moment().format('MM');
                     let today = moment().format('DD');
-                    this.sougi.reqYear = year;
-                    this.sougi.reqMonth = month;
-                    this.sougi.reqDay = today;
-                    this.sougi.tuyaYear = year;
-                    this.sougi.tuyaMonth = month;
-                    this.sougi.tuyaDay = today;
-                    this.sougi.kasouYear = year;
-                    this.sougi.kasouMonth = month;
-                    this.sougi.kasouDay = today;
-                    this.sougi.kokubetsuYear = year;
-                    this.sougi.kokubetsuMonth = month;
-                    this.sougi.kokubetsuDay = today;
-                    this.sougi.todayYear = year;
-                    this.sougi.dead_year = year;
-                    this.sougi.dead_month = month;
-                    this.sougi.dead_day = today;
+
                 });
         },
         getComps(){

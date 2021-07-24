@@ -60,6 +60,7 @@ class Sougi extends Model
         'deadMin' ,
         'moshuSpell' ,
         'moshuName' ,
+        'moshuMail' ,
         'moshuBirthYear' ,
         'moshuBirthMonth' ,
         'moshuBirthDay' ,

@@ -2476,19 +2476,18 @@ __webpack_require__.r(__webpack_exports__);
       sougi: {
         "sex": 'male',
         "spouse": 'いる',
-        "dead_month": '12',
         "spouseStatus": '未婚',
         "date": moment__WEBPACK_IMPORTED_MODULE_0___default()(),
         "today": moment__WEBPACK_IMPORTED_MODULE_0___default()().format(),
-        "kojinBirthYear": '1950',
-        "kojinBirthMonth": '01',
-        "kojinBirthDay": '01',
-        "moshuBirthYear": '1950',
-        "moshuBirthMonth": '01',
-        "moshuBirthDay": '01',
-        "repBirthYear": '1950',
-        "repBirthMonth": '01',
-        "repBirthDay": '01',
+        "kojinBirthYear": 1950,
+        "kojinBirthMonth": 1,
+        "kojinBirthDay": 1,
+        "moshuBirthYear": 1950,
+        "moshuBirthMonth": 1,
+        "moshuBirthDay": 1,
+        "repBirthYear": 1950,
+        "repBirthMonth": 1,
+        "repBirthDay": 1,
         "payWay": '振込',
         "cereIndex": 0,
         "creIndex": 0
@@ -2572,13 +2571,9 @@ __webpack_require__.r(__webpack_exports__);
     this.getComps();
     this.getCeres();
     this.getCres();
-
-    var year = moment__WEBPACK_IMPORTED_MODULE_0___default()().format('YYYY');
-
-    var month = moment__WEBPACK_IMPORTED_MODULE_0___default()().format('MM');
-
-    var today = moment__WEBPACK_IMPORTED_MODULE_0___default()().format('DD');
-
+    var year = parseInt(moment__WEBPACK_IMPORTED_MODULE_0___default()().format('YYYY'));
+    var month = parseInt(moment__WEBPACK_IMPORTED_MODULE_0___default()().format('MM'));
+    var today = parseInt(moment__WEBPACK_IMPORTED_MODULE_0___default()().format('DD'));
     this.sougi.reqYear = year;
     this.sougi.reqMonth = month;
     this.sougi.reqDay = today;
@@ -5058,7 +5053,6 @@ __webpack_require__.r(__webpack_exports__);
       sougi: {
         "sex": 'male',
         "spouse": 'いる',
-        "dead_month": '12',
         "spouseStatus": '未婚',
         "date": moment__WEBPACK_IMPORTED_MODULE_0___default()(),
         "today": moment__WEBPACK_IMPORTED_MODULE_0___default()().format(),
@@ -5124,23 +5118,6 @@ __webpack_require__.r(__webpack_exports__);
         var month = moment__WEBPACK_IMPORTED_MODULE_0___default()().format('MM');
 
         var today = moment__WEBPACK_IMPORTED_MODULE_0___default()().format('DD');
-
-        _this2.sougi.reqYear = year;
-        _this2.sougi.reqMonth = month;
-        _this2.sougi.reqDay = today;
-        _this2.sougi.tuyaYear = year;
-        _this2.sougi.tuyaMonth = month;
-        _this2.sougi.tuyaDay = today;
-        _this2.sougi.kasouYear = year;
-        _this2.sougi.kasouMonth = month;
-        _this2.sougi.kasouDay = today;
-        _this2.sougi.kokubetsuYear = year;
-        _this2.sougi.kokubetsuMonth = month;
-        _this2.sougi.kokubetsuDay = today;
-        _this2.sougi.todayYear = year;
-        _this2.sougi.dead_year = year;
-        _this2.sougi.dead_month = month;
-        _this2.sougi.dead_day = today;
       });
     },
     getComps: function getComps() {
@@ -5698,7 +5675,184 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      myStorage: [],
+      conb: "dataのtestなり",
+      canvas: [],
+      ctx: []
+    };
+  },
+  mounted: function mounted() {
+    this.canvas = this.$refs.canvas;
+    this.ctx = this.canvas.getContext('2d');
+    var canvas = document.getElementById('canvassample'),
+        ctx = canvas.getContext('2d'),
+        moveflg = 0,
+        Xpoint,
+        Ypoint;
+    this.canvas = canvas;
+    this.ctx = ctx; //初期値（サイズ、色、アルファ値）の決定
+
+    var defSize = 7,
+        defColor = "#555"; // ストレージの初期化
+
+    this.myStorage = localStorage;
+    var myStorage = localStorage;
+    window.onload = this.initLocalStorage(); // PC対応
+
+    canvas.addEventListener('mousedown', startPoint, false);
+    canvas.addEventListener('mousemove', movePoint, false);
+    canvas.addEventListener('mouseup', endPoint, false); // スマホ対応
+
+    canvas.addEventListener('touchstart', startPoint, false);
+    canvas.addEventListener('touchmove', movePoint, false);
+    canvas.addEventListener('touchend', endPoint, false);
+
+    function startPoint(e) {
+      e.preventDefault();
+      ctx.beginPath();
+      Xpoint = e.layerX;
+      Ypoint = e.layerY;
+      ctx.moveTo(Xpoint, Ypoint);
+    }
+
+    function movePoint(e) {
+      if (e.buttons === 1 || e.witch === 1 || e.type == 'touchmove') {
+        Xpoint = e.layerX;
+        Ypoint = e.layerY;
+        moveflg = 1;
+        ctx.lineTo(Xpoint, Ypoint);
+        ctx.lineCap = "round";
+        ctx.lineWidth = defSize * 2;
+        ctx.strokeStyle = defColor;
+        ctx.stroke();
+      }
+    }
+
+    function endPoint(e) {
+      if (moveflg === 0) {
+        ctx.lineTo(Xpoint - 1, Ypoint - 1);
+        ctx.lineCap = "round";
+        ctx.lineWidth = defSize * 2;
+        ctx.strokeStyle = defColor;
+        ctx.stroke();
+      }
+
+      moveflg = 0;
+      setLocalStorage();
+    }
+
+    function chgImg() {
+      var png = this.canvas.toDataURL();
+      document.getElementById("newImg").src = png;
+    }
+
+    function initLocalStorage() {
+      this.myStorage.setItem("__log", JSON.stringify([]));
+    }
+
+    function setLocalStorage() {
+      var png = canvas.toDataURL();
+      var logs = JSON.parse(myStorage.getItem("__log"));
+      setTimeout(function () {
+        logs.unshift({
+          0: png
+        });
+        myStorage.setItem("__log", JSON.stringify(logs));
+      }, 0);
+    }
+
+    function prevCanvas() {
+      var logs = JSON.parse(myStorage.getItem("__log"));
+
+      if (logs.length > 0) {
+        temp.unshift(logs.shift());
+        setTimeout(function () {
+          myStorage.setItem("__log", JSON.stringify(logs));
+          resetCanvas();
+          draw(logs[0]['png']);
+        }, 0);
+      }
+    }
+
+    function nextCanvas() {
+      var logs = JSON.parse(myStorage.getItem("__log"));
+
+      if (temp.length > 0) {
+        logs.unshift(temp.shift());
+        setTimeout(function () {
+          this.myStorage.setItem("__log", JSON.stringify(logs));
+          resetCanvas();
+          draw(logs[0]['png']);
+        }, 0);
+      }
+    }
+
+    function draw(src) {
+      var img = new Image();
+      img.src = src;
+
+      img.onload = function () {
+        this.ctx.drawImage(img, 0, 0);
+      };
+    }
+
+    function resetCanvas() {
+      ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
+    }
+  },
+  beforeDestroy: function beforeDestroy() {
+    document.removeEventListener("mousemove", this.someEventHandler); // PC対応
+
+    canvas.removeEventListener('mousedown', startPoint, false);
+    canvas.removeEventListener('mousemove', movePoint, false);
+    canvas.removeEventListener('mouseup', endPoint, false); // スマホ対応
+
+    canvas.removeEventListener('touchstart', startPoint, false);
+    canvas.removeEventListener('touchmove', movePoint, false);
+    canvas.removeEventListener('touchend', endPoint, false);
+  },
+  methods: {
+    clearCanvas: function clearCanvas() {
+      if (confirm('Canvasを初期化しますか？')) {
+        this.initLocalStorage();
+        this.resetCanvas();
+      }
+    },
+    resetCanvas: function resetCanvas() {
+      var ctx = this.ctx;
+      var canvas = this.canvas;
+      ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
+    },
+    initLocalStorage: function initLocalStorage() {
+      this.myStorage.setItem("__log", JSON.stringify([]));
+    },
+    saveCanvas: function saveCanvas(canvas_id) {
+      //アンカータグを作成
+      var a = document.createElement('a'); //canvasをJPEG変換し、そのBase64文字列をhrefへセット
+
+      a.href = this.canvas.toDataURL('image/jpeg', 0.85); //ダウンロード時のファイル名を指定
+
+      a.download = 'download.jpg'; //クリックイベントを発生させる
+
+      a.click();
+    }
+  }
+});
 
 /***/ }),
 
@@ -10294,7 +10448,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbtn-warning{\n}\n", ""]);
+exports.push([module.i, "\ncanvas {\n  border:3px solid #000;\n}\n", ""]);
 
 // exports
 
@@ -71588,7 +71742,7 @@ var render = function() {
                   },
                   [
                     _c("button", { staticClass: "btn btn-success" }, [
-                      _vm._v("葬儀"),
+                      _vm._v("顧客情報"),
                       _c("br"),
                       _vm._v("の編集")
                     ])
@@ -77672,7 +77826,7 @@ var render = function() {
               staticClass: "btn btn-primary btn-lg btn-block",
               staticStyle: { padding: "20px 0" }
             },
-            [_vm._v("葬儀の作成（顧客登録）")]
+            [_vm._v("葬儀の新規登録（顧客登録）")]
           )
         ])
       ],
@@ -77690,7 +77844,7 @@ var render = function() {
               staticClass: "btn btn-warning btn-lg btn-block",
               staticStyle: { padding: "20px 0" }
             },
-            [_vm._v("葬儀リスト")]
+            [_vm._v("葬儀・顧客情報の編集")]
           )
         ])
       ],
@@ -77708,7 +77862,7 @@ var render = function() {
               staticClass: "btn btn-danger btn-lg btn-block",
               staticStyle: { padding: "20px 0" }
             },
-            [_vm._v("顧客リスト")]
+            [_vm._v("顧客一覧")]
           )
         ])
       ],
@@ -77726,7 +77880,7 @@ var render = function() {
               staticClass: "btn btn-success btn-lg btn-block",
               staticStyle: { padding: "20px 0" }
             },
-            [_vm._v("入力管理")]
+            [_vm._v("会社名・斎場名の編集")]
           )
         ])
       ],
@@ -77749,10 +77903,66 @@ var render = function() {
         ])
       ],
       1
-    )
+    ),
+    _vm._v(" "),
+    _c("canvas", {
+      ref: "canvas",
+      attrs: { id: "canvassample", width: "500", height: "300" }
+    }),
+    _vm._v(" "),
+    _c("div", { staticStyle: { padding: "10px" } }, [
+      _c(
+        "button",
+        {
+          attrs: { type: "button" },
+          on: {
+            click: function($event) {
+              return _vm.clearCanvas()
+            }
+          }
+        },
+        [_vm._v("リセット")]
+      ),
+      _vm._v(" "),
+      _c("button", { attrs: { type: "button", onclick: "prevCanvas()" } }, [
+        _vm._v("戻る")
+      ]),
+      _vm._v(" "),
+      _c("button", { attrs: { type: "button", onclick: "nextCanvas()" } }, [
+        _vm._v("進む")
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticStyle: { padding: "10px" } }, [
+      _c(
+        "button",
+        {
+          attrs: { type: "button", value: "1" },
+          on: {
+            click: function($event) {
+              return _vm.saveCanvas("canvassample")
+            }
+          }
+        },
+        [_vm._v("画像変換")]
+      )
+    ]),
+    _vm._v(" "),
+    _c("h2", [_vm._v("画像出力")]),
+    _vm._v(" "),
+    _vm._m(0)
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "img-box" } }, [
+      _c("img", { attrs: { id: "newImg" } })
+    ])
+  }
+]
 render._withStripped = true
 
 

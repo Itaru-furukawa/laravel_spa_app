@@ -564,19 +564,18 @@ export default {
             sougi : {
                 "sex" :'male',
                 "spouse" :'いる',
-                "dead_month": '12',
                 "spouseStatus": '未婚',
                 "date" : moment(),
                 "today" : moment().format(),
-                "kojinBirthYear" : '1950',
-                "kojinBirthMonth" : '01' ,
-                "kojinBirthDay" : '01',
-                "moshuBirthYear" : '1950',
-                "moshuBirthMonth" : '01' ,
-                "moshuBirthDay" : '01',
-                "repBirthYear" : '1950',
-                "repBirthMonth" : '01' ,
-                "repBirthDay" : '01',
+                "kojinBirthYear" : 1950,
+                "kojinBirthMonth" : 1 ,
+                "kojinBirthDay" : 1,
+                "moshuBirthYear" : 1950,
+                "moshuBirthMonth" : 1 ,
+                "moshuBirthDay" : 1,
+                "repBirthYear" : 1950,
+                "repBirthMonth" : 1 ,
+                "repBirthDay" : 1,
                 "payWay" : '振込',
                 "cereIndex" : 0,
                 "creIndex" : 0,
@@ -656,9 +655,9 @@ export default {
         this.getComps();
         this.getCeres();
         this.getCres();
-        let year = moment().format('YYYY');
-        let month = moment().format('MM');
-        let today = moment().format('DD');
+        let year = parseInt(moment().format('YYYY'));
+        let month = parseInt(moment().format('MM'));
+        let today = parseInt(moment().format('DD'));
         this.sougi.reqYear = year;
         this.sougi.reqMonth = month;
         this.sougi.reqDay = today;
